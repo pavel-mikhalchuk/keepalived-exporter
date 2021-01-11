@@ -13,4 +13,4 @@ jobs:
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag pavelmikhalchuk/keepalived-exporter:$(git rev-parse --short "$GITHUB_SHA")
       - name: Push Docker image
-        run: docker push pavelmikhalchuk/keepalived_exporter:$(git rev-parse --short "$GITHUB_SHA")
+        run: docker push pavelmikhalchuk/keepalived-exporter:$(git rev-parse --short "$GITHUB_SHA")
