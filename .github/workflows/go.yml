@@ -73,3 +73,16 @@ jobs:
 
     - name: Check lints
       run: sudo make lint
+
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Login to DockerHub Registry
+        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag pavelmikhalchuk/keepalived_exporter:$(git rev-parse --short "$GITHUB_SHA")
+      - name: Push Docker image
+        run: docker push pavelmikhalchuk/keepalived_exporter:$(git rev-parse --short "$GITHUB_SHA")
