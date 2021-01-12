@@ -10,7 +10,7 @@ RUN make build
 
 FROM pavelmikhalchuk/keepalived
 
-COPY --from=build /keepalived-exporter/keepalived_exporter /keepalived_exporter
+COPY --from=build /keepalived-exporter/keepalived-exporter /keepalived-exporter
 
 EXPOSE 9165
 
