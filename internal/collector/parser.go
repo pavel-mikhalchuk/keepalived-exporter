@@ -12,9 +12,9 @@ import (
 
 var (
 	// VRRPScriptStatuses contains VRRP Script statuses
-	VRRPScriptStatuses = []string{"BAD", "GOOD"}
+	VRRPScriptStatuses = []string{"INIT", "BAD", "GOOD", "INITFAILED"}
 	// VRRPScriptStates contains VRRP Script states
-	VRRPScriptStates = []string{"idle", "running", "requested termination", "forcing termination"}
+	VRRPScriptStates = []string{"idle", "running", "requested termination", "forcing termination", "unknown"}
 	// VRRPStates contains VRRP states
 	VRRPStates = []string{"INIT", "BACKUP", "MASTER", "FAULT"}
 )
