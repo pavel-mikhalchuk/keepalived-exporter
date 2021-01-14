@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:alpine as build
 
 RUN apk add --no-cache make git bash
 
@@ -8,6 +8,12 @@ ADD . .
 
 RUN make build
 
+FROM pavelmikhalchuk/keepalived
+
+COPY --from=build /keepalived-exporter/keepalived-exporter /keepalived-exporter
+
 EXPOSE 9165
 
-ENTRYPOINT [ "./keepalived-exporter" ]
+RUN keepalived -v
+
+ENTRYPOINT [ "/keepalived-exporter" ]
