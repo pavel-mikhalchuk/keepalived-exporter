@@ -391,7 +391,7 @@
               "expr":"keepalived_vrrp_state",
               "format":"time_series",
               "instant":false,
-              "legendFormat":"VIP: {{ ip_address }}; Node: {{ instance }}",
+              "legendFormat":"{{ instance }} ({{ ip_address }})",
               "refId":"A"
            }
         ],
